@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: var(--primary);
+  --color-brand-bg: var(--bg);
+  --color-brand-text: var(--text);
+  --color-brand-card: var(--card);
+  --color-brand-border: var(--border);
+  --color-brand-muted: var(--muted);
+  --color-brand-accent: var(--accent);
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg: #FDFCF8;
+    --text: #1C1917;
+    --card: #FFFFFF;
+    --border: #E8E3DD;
+    --primary: #293425;
+    --muted: #57534E;
+    --accent: #A8865C;
+  }
+  .dark {
+    --bg: #0F0E0D;
+    --text: #F7F5F2;
+    --card: #1A1817;
+    --border: #2A2624;
+    --primary: #4A5D43;
+    --muted: #A8A29E;
+    --accent: #CAA882;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.accordion-content-open {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-content-closed {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
